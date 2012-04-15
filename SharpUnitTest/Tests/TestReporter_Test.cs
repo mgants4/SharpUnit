@@ -43,18 +43,5 @@ namespace SharpUnitTest
             m_reporter.LogResults(res);
             Assert.Equal(1, m_reporter.NumFailures);
         }
-
-        [UnitTest]
-        public void TestLogFailure()
-        {
-            // No param
-            Assert.Equal(0, m_reporter.NumFailures);
-            m_reporter.LogFailure(null);
-            Assert.Equal(0, m_reporter.NumFailures);
-
-            // W/ param
-            m_reporter.LogFailure(new Exception("Failure"));
-            Assert.Equal(1, m_reporter.NumFailures);
-        }
     }
 }

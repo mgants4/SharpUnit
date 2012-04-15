@@ -109,7 +109,7 @@ namespace SharpUnit
                             {
                                 // Add stack frame info
                                 te.Description += " in File: " + System.IO.Path.GetFileName( te.StackFrame.GetFileName() );
-                                te.Description += " on Line: " + te.StackFrame.GetFileLineNumber() + "\n";
+                                te.Description += " on Line: " + te.StackFrame.GetFileLineNumber();
                             }
                         }
 

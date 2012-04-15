@@ -11,7 +11,7 @@ namespace SharpUnit
     public class TestReporter
     {
         // Member values
-        private TestResult m_result = null;     // Unit test results to output.
+        protected TestResult m_result = null;     // Unit test results to output.
 
         /**
          * Get the TestResult object that will be used for reporting.
@@ -52,7 +52,7 @@ namespace SharpUnit
          *       Especially useful for displaying failed tests within the 
          *       Unity3D console, etc.
          */
-        public virtual void LogSummary()
+        protected virtual void LogSummary()
         {
             // If results invalid
             if (null == m_result)
@@ -75,7 +75,7 @@ namespace SharpUnit
          * 
          * @param error, the failed test exception to output.
          */
-        public virtual void LogFailure(Exception error)
+        protected virtual void LogFailure(Exception error)
         {
             // If error valid
             if (null != error)

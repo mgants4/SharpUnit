@@ -25,7 +25,7 @@ namespace SharpUnitTest
         /**
          * Override summary logging since we do not want to display any output in this case.
          */
-        public override void LogSummary()
+        protected override void LogSummary()
         {
             // Do not log summary, keeps test output clean
         }
@@ -36,7 +36,7 @@ namespace SharpUnitTest
          * 
          * @param error, the failed test exception to output.
          */
-        public override void LogFailure(Exception error)
+        protected override void LogFailure(Exception error)
         {
             // If the error is valid
             if (null != error)
