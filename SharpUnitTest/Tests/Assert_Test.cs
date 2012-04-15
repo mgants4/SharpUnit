@@ -150,7 +150,7 @@ namespace SharpUnitTest
             Assert.Equal("test", "test");
 
             // Test fail
-            Assert.ExpectException(new TestException("Expected crap, Got test"));
+            Assert.ExpectException(new TestException("Expected \"crap\", Got \"test\""));
             Assert.Equal("crap", "test");
         }
 

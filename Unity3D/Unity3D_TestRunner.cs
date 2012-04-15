@@ -6,9 +6,11 @@
  * Drag this onto an empty GameObject to run tests.
  */
 
-using UnityEngine;
+using System;
 using System.Collections;
+using System.Reflection;
 using SharpUnit;
+using UnityEngine;
 
 public class Unity3D_TestRunner : MonoBehaviour 
 {
@@ -20,8 +22,23 @@ public class Unity3D_TestRunner : MonoBehaviour
         // Create test suite
         TestSuite suite = new TestSuite();
 
-        // Example: Add tests to suite
-        //suite.AddAll(new Dummy_Test());
+        // For each assembly in this app domain
+        foreach (Assembly assem in AppDomain.CurrentDomain.GetAssemblies())
+        {
+            // For each type in the assembly
+            foreach (Type type in assem.GetTypes())
+            {
+                // If this is a valid test case
+                // i.e. derived from TestCase and instantiable
+                if (typeof(TestCase).IsAssignableFrom(type) &&
+                    type != typeof(TestCase) &&
+                    !type.IsAbstract)
+                {
+                    // Add tests to suite
+                    suite.AddAll(type.GetConstructor(new Type[0]).Invoke(new object[0]) as TestCase);
+                }
+            }
+        }
 
         // Run the tests
         TestResult res = suite.Run(null);

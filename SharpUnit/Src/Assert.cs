@@ -227,7 +227,7 @@ namespace SharpUnit
             if (wanted != got)
             {
                 // Test failed
-                throw new TestException("Expected " + wanted + ", Got " + got);
+                throw new TestException("Expected \"" + wanted + "\", Got \"" + got + "\"");
             }
         }
 

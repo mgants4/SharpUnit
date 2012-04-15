@@ -26,6 +26,11 @@ Global
 		{FF49B3B5-2A90-4F81-B8B7-A67AD32BED2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF49B3B5-2A90-4F81-B8B7-A67AD32BED2B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = SharpUnitTest\SharpUnitTest.csproj
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
