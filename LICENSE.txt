@@ -1,0 +1,13 @@
+﻿SharpUnit was written by:
+Mark Gants | mgants@bigpoint.net
+Bigpoint GmbH, www.bigpoint.net
+May 20, 2010
+
+This software is provided "as is" for free.
+You may do anything you like with this software as long as you leave this notice in place.
+
+Conditions:
+- If we meet some day, and you think this stuff is worth it, you can buy me a beer in return.
+- Please make any changes and improvements on this software freely available to others.
+
+Thank you for using SharpUnit!
