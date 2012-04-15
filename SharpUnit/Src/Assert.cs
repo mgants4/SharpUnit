@@ -2,7 +2,9 @@
  * @file Assert.cs
  * 
  * Static assertion methods for verifying test expectations.
- * Each test throws a TestException if it fails.
+ * NOTE: It is important that each test throw its own TestException if it fails,
+ *       as this gives us more accurate call stack reporting.
+ * 
  */
 
 using System;
@@ -26,7 +28,7 @@ namespace SharpUnit
         /**
          * Set the exception that is expected to be triggered by a unit test case.
          *
-         * @param Exception ex, the expection to expect.
+         * @param ex, the expection to expect.
          */
         public static void ExpectException(Exception ex)
         {
@@ -36,18 +38,23 @@ namespace SharpUnit
         /**
          * Throw an exception if the boolean expression is not true.
          * 
-         * @param bool boolean, the expression to test.
+         * @param boolean, the expression to test.
          */
         public static void True(bool boolean)
         {
-            True(boolean, "Expected True, got False.");
+            // If not true
+            if (true != boolean)
+            {
+                // Test failed
+                throw new TestException("Expected True, got False.");
+            }
         }
 
         /**
          * Throw an exception if the boolean expression is not true.
          * 
-         * @param bool boolean, boolean expression to evaluate.
-         * @param string msg, error message to display if test fails.
+         * @param boolean, boolean expression to evaluate.
+         * @param msg, error message to display if test fails.
          */
         public static void True(bool boolean, string msg)
         {
@@ -62,18 +69,23 @@ namespace SharpUnit
         /**
          * Throw an exception if the boolean expression is not false.
          * 
-         * @param bool boolean, the expression to test.
+         * @param boolean, the expression to test.
          */
         public static void False(bool boolean)
         {
-            False(boolean, "Expected False, got True.");
+            // If not false
+            if (false != boolean)
+            {
+                // Test failed
+                throw new TestException("Expected False, got True.");
+            }
         }
 
         /**
          * Throw an exception if the boolean expression is not false.
          * 
-         * @param bool boolean, boolean expression to evaluate.
-         * @param string msg, error message to display if test fails.
+         * @param boolean, boolean expression to evaluate.
+         * @param msg, error message to display if test fails.
          */
         public static void False(bool boolean, string msg)
         {
@@ -88,18 +100,23 @@ namespace SharpUnit
         /**
          * Throw an exception if the object is not null.
          * 
-         * @param Object obj, the object to test.
+         * @param obj, the object to test.
          */
         public static void Null(Object obj)
         {
-            Null(obj, "Expected Null object, got " + obj);
+            // If not null
+            if (null != obj)
+            {
+                // Test failed
+                throw new TestException("Expected Null object, got " + obj);
+            }
         }
 
         /**
          * Throw an exception if the object is not null.
          * 
-         * @param Object obj, the object to test.
-         * @param string msg, error message to display if test fails.
+         * @param obj, the object to test.
+         * @param msg, error message to display if test fails.
          */
         public static void Null(Object obj, string msg)
         {
@@ -114,18 +131,23 @@ namespace SharpUnit
         /**
          * Throw an exception if the object is null.
          * 
-         * @param Object obj, the object to test.
+         * @param obj, the object to test.
          */
         public static void NotNull(Object obj)
         {
-            NotNull(obj, "The object is null.");
+            // If null
+            if (null == obj)
+            {
+                // Test failed
+                throw new TestException("The object is null.");
+            }
         }
 
         /**
          * Throw an exception if the object is null.
          * 
-         * @param Object obj, the object to test.
-         * @param string msg, error message to display if test fails.
+         * @param obj, the object to test.
+         * @param msg, error message to display if test fails.
          */
         public static void NotNull(Object obj, string msg)
         {
@@ -140,8 +162,8 @@ namespace SharpUnit
         /**
          * Throw an exception if the two integers are not not equal.
          * 
-         * @param int wanted, the value we expected.
-         * @param int got, the value we actually received.
+         * @param wanted, the value we expected.
+         * @param got, the value we actually received.
          */
         public static void Equal(int wanted, int got)
         {
@@ -156,9 +178,9 @@ namespace SharpUnit
         /**
          * Throw an exception if the two integers are not not equal.
          * 
-         * @param int wanted, the value we expected.
-         * @param int got, the value we actually received.
-         * @param string msg, error message to display if test fails.
+         * @param wanted, the value we expected.
+         * @param got, the value we actually received.
+         * @param msg, error message to display if test fails.
          */
         public static void Equal(int wanted, int got, string msg)
         {
@@ -179,8 +201,8 @@ namespace SharpUnit
          *              http://www.cygnus-software.com/papers/comparingfloats/comparingfloats.htm
          *              http://realtimecollisiondetection.net/blog/?p=89
          * 
-         * @param float wanted, the value we expected.
-         * @param float got, the value we actually received.
+         * @param wanted, the value we expected.
+         * @param got, the value we actually received.
          */
         public static void Equal(float wanted, float got)
         {
@@ -201,9 +223,9 @@ namespace SharpUnit
          *              http://www.cygnus-software.com/papers/comparingfloats/comparingfloats.htm
          *              http://realtimecollisiondetection.net/blog/?p=89
          * 
-         * @param float wanted, the value we expected.
-         * @param float got, the value we actually received.
-         * @param string msg, error message to display if test fails.
+         * @param wanted, the value we expected.
+         * @param got, the value we actually received.
+         * @param msg, error message to display if test fails.
          */
         public static void Equal(float wanted, float got, string msg)
         {
@@ -218,8 +240,8 @@ namespace SharpUnit
         /**
          * Throw an exception if the two strings are not not equal.
          * 
-         * @param string wanted, the value we expected.
-         * @param string got, the value we actually received.
+         * @param wanted, the value we expected.
+         * @param got, the value we actually received.
          */
         public static void Equal(string wanted, string got)
         {
@@ -234,9 +256,9 @@ namespace SharpUnit
         /**
          * Throw an exception if the two strings are not not equal.
          * 
-         * @param string wanted, the value we expected.
-         * @param string got, the value we actually received.
-         * @param string msg, error message to display if test fails.
+         * @param wanted, the value we expected.
+         * @param got, the value we actually received.
+         * @param msg, error message to display if test fails.
          */
         public static void Equal(string wanted, string got, string msg)
         {
@@ -251,8 +273,8 @@ namespace SharpUnit
         /**
          * Throw an exception if the two bools are not not equal.
          * 
-         * @param bool wanted, the value we expected.
-         * @param bool got, the value we actually received.
+         * @param wanted, the value we expected.
+         * @param got, the value we actually received.
          */
         public static void Equal(bool wanted, bool got)
         {
@@ -267,9 +289,9 @@ namespace SharpUnit
         /**
          * Throw an exception if the two bools are not not equal.
          * 
-         * @param bool wanted, the value we expected.
-         * @param bool got, the value we actually received.
-         * @param string msg, error message to display if test fails.
+         * @param wanted, the value we expected.
+         * @param got, the value we actually received.
+         * @param msg, error message to display if test fails.
          */
         public static void Equal(bool wanted, bool got, string msg)
         {
@@ -285,33 +307,33 @@ namespace SharpUnit
          * Throw an exception if the exceptions do not match.
          * NOTE: We only test the type and message of the exceptions.
          * 
-         * @param Exception wanted, the exception we expected.
-         * @param Exception got, the exception we actually caught.
+         * @param wanted, the exception we expected.
+         * @param got, the exception we actually caught.
          */
         public static void Equal(Exception wanted, Exception got)
         {
-            Equal(wanted, got, "Exceptions do not match.\n\tExpected " + wanted + ",\n\tGot " + got);
+            // If types or messages not equal
+            if ((wanted.GetType() != got.GetType()) ||
+                (wanted.Message != got.Message))
+            {
+                // Test failed
+                throw new TestException("Exceptions do not match.\n\tExpected " + wanted + ",\n\tGot " + got);
+            }
         }
 
         /**
          * Throw an exception if the exceptions do not match.
          * NOTE: We only test the type and message of the exceptions.
          * 
-         * @param Exception wanted, the exception we expected.
-         * @param Exception got, the exception we actually caught.
-         * @param string msg, error message to display if test fails.
+         * @param wanted, the exception we expected.
+         * @param got, the exception we actually caught.
+         * @param msg, error message to display if test fails.
          */
         public static void Equal(Exception wanted, Exception got, string msg)
         {
-            // If types not equal
-            if (wanted.GetType() != got.GetType())
-            {
-                // Test failed
-                throw new TestException(msg);
-            }
-
-            // If the messages do not match
-            if (wanted.Message != got.Message)
+            // If types or messages not equal
+            if ((wanted.GetType() != got.GetType()) ||
+                (wanted.Message != got.Message))
             {
                 // Test failed
                 throw new TestException(msg);
@@ -321,8 +343,8 @@ namespace SharpUnit
         /**
          * Throw an exception if the two objects are not not equal.
          * 
-         * @param object wanted, the value we expected.
-         * @param object got, the value we actually received.
+         * @param wanted, the value we expected.
+         * @param got, the value we actually received.
          */
         public static void Equal(Object wanted, Object got)
         {
@@ -337,9 +359,9 @@ namespace SharpUnit
         /**
          * Throw an exception if the two objects are not not equal.
          * 
-         * @param object wanted, the value we expected.
-         * @param object got, the value we actually received.
-         * @param string msg, error message to display if test fails.
+         * @param wanted, the value we expected.
+         * @param got, the value we actually received.
+         * @param msg, error message to display if test fails.
          */
         public static void Equal(Object wanted, Object got, string msg)
         {

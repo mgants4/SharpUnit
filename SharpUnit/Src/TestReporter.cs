@@ -24,7 +24,7 @@ namespace SharpUnit
         /**
          * Outputs the results of the unit tests.
          * 
-         * @param TestResult result, the result containing the failures to display.
+         * @param result, the result containing the failures to display.
          */
         public virtual void LogResults(TestResult result)
         {
@@ -73,7 +73,7 @@ namespace SharpUnit
          *       Especially useful for displaying failed tests within the 
          *       Unity3D console, etc.
          * 
-         * @param Exception error, the failed test exception to output.
+         * @param error, the failed test exception to output.
          */
         public virtual void LogFailure(Exception error)
         {

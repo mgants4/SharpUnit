@@ -8,6 +8,7 @@
 
 using System;
 using System.Reflection;
+using System.Diagnostics;
 
 namespace SharpUnit
 {
@@ -36,7 +37,7 @@ namespace SharpUnit
         /**
          * Set the name of the test method to run.
          *
-         * @param string method, the test method to run.
+         * @param method, the test method to run.
          */
         public void SetTestMethod(string method)
         {
@@ -46,7 +47,7 @@ namespace SharpUnit
         /**
          * Run the test, catching all exceptions.
          * 
-         * @param TestResult result, the result of the test.
+         * @param result, the result of the test.
          * 
          * @return TestResult, the result of the test.
          */
@@ -103,7 +104,13 @@ namespace SharpUnit
                         {
                             // Set the description
                             TestException te = e.InnerException as TestException;
-                            te.Description = "Failed: " + GetType() + "." + m_testMethod + "()";
+                            te.Description  = "Failed: " + GetType() + "." + m_testMethod + "()";
+                            if (null != te.StackFrame)
+                            {
+                                // Add stack frame info
+                                te.Description += " in File: " + System.IO.Path.GetFileName( te.StackFrame.GetFileName() );
+                                te.Description += " on Line: " + te.StackFrame.GetFileLineNumber() + "\n";
+                            }
                         }
 
                         // Re-throw the exception to be tracked
@@ -133,5 +140,5 @@ namespace SharpUnit
 
             return result;
         }
-    }
+    } 
 }

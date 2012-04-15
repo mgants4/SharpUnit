@@ -1,15 +1,15 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpUnit", "SharpUnit\SharpUnit.csproj", "{18EF2A7C-3CF7-4308-AF54-263174D1649F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpUnitTest", "SharpUnitTest\SharpUnitTest.csproj", "{FF49B3B5-2A90-4F81-B8B7-A67AD32BED2B}"
-EndProject
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D0D3EE86-724B-411E-877D-6D6A97FCBAAC}"
 	ProjectSection(SolutionItems) = preProject
 		LICENSE.txt = LICENSE.txt
 		README.txt = README.txt
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpUnit", "SharpUnit\SharpUnit.csproj", "{18EF2A7C-3CF7-4308-AF54-263174D1649F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpUnitTest", "SharpUnitTest\SharpUnitTest.csproj", "{FF49B3B5-2A90-4F81-B8B7-A67AD32BED2B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,12 +26,10 @@ Global
 		{FF49B3B5-2A90-4F81-B8B7-A67AD32BED2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF49B3B5-2A90-4F81-B8B7-A67AD32BED2B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = SharpUnitTest\SharpUnitTest.csproj
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal

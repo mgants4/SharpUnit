@@ -16,7 +16,7 @@ namespace SharpUnitTest
          * Main entry point.
          * Runs unit tests for the unit testing framework.
          * 
-         * @param string[] args, array of string arguments.
+         * @param args, array of string arguments.
          */
         static void Main(string[] args)
         {

@@ -36,7 +36,7 @@ namespace SharpUnit
         /**
          * Add all test cases to the test suite.
          * 
-         * @param TestCase test, the test case containing the tests we will add.
+         * @param test, the test case containing the tests we will add.
          */
         public void AddAll(TestCase test)
         {
@@ -75,7 +75,7 @@ namespace SharpUnit
         /**
          * Run all of the tests in the test suite.
          * 
-         * @param TestResult result, result of the test run.
+         * @param result, result of the test run.
          */
         public TestResult Run(TestResult result)
         {

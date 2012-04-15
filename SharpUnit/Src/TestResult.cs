@@ -70,7 +70,7 @@ namespace SharpUnit
         /**
          * Increment the number of failed tests.
          * 
-         * @param Exception error, the exception thrown by the test that failed.
+         * @param error, the exception thrown by the test that failed.
          */
         public void TestFailed(Exception error)
         {

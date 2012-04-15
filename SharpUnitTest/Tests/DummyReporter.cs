@@ -34,7 +34,7 @@ namespace SharpUnitTest
          * Output a single failure.
          * NOTE: To keep our test output clean we will just count the number of "logged" failures.
          * 
-         * @param Exception error, the failed test exception to output.
+         * @param error, the failed test exception to output.
          */
         public override void LogFailure(Exception error)
         {
