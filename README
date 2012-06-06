@@ -42,3 +42,14 @@ Running Tests in Unity3D:
 
 Extending SharpUnit:
 - Derive a new class from TestReporter to modify how SharpUnit reports test results and errors.
+
+Tips & Tricks:
+- Depending on your project and how you write your tests, you might notice that SharpUnit can leave
+  "extra" or "duplicate" objects in your scene. This tends to happen if you don't clean up after your tests
+  in the "tear down" methods or if you make use of automatic Singletons, etc.
+
+  To mitigate this, consider opening a fresh scene before you run the unit tests and close it after the tests have run.
+  I recommend automating this with a static method labeled as a Unity editor "menu item." Works well when running tests in the 
+  editor or as part of of your build process as it keeps your scenes free of extra test artifacts that may appear.
+
+  More on menu items: http://unity3d.com/support/documentation/ScriptReference/MenuItem.html
