@@ -91,10 +91,10 @@ namespace SharpUnit
                 {
                     // If we are expecting an exception
                     m_caughtEx = e;
-                    if (null != Assert.ExpectedException)
+                    if (null != Assert.Exception)
                     {
                         // Compare the exceptions
-                        Assert.Equal(Assert.ExpectedException, m_caughtEx.InnerException);
+                        Assert.Equal(Assert.Exception, m_caughtEx.InnerException);
                     }
                     else
                     {
@@ -119,11 +119,11 @@ namespace SharpUnit
                 }
 
                 // If we are expecting an exception but did not catch one
-                if (null != Assert.ExpectedException &&
+                if (null != Assert.Exception &&
                     null == m_caughtEx)
                 {
                     // Error
-                    Assert.NotNull(m_caughtEx, "Did not catch expected exception: " + Assert.ExpectedException);
+                    Assert.NotNull(m_caughtEx, "Did not catch expected exception: " + Assert.Exception);
                 }
             }
             catch (Exception ex)
@@ -133,7 +133,7 @@ namespace SharpUnit
             }
 
             // Clear expected exception
-            Assert.ExpectedException = null;
+            Assert.Exception = null;
 
             // Post-test cleanup
             TearDown();

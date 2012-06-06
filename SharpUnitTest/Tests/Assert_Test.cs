@@ -14,7 +14,7 @@ namespace SharpUnitTest
         [UnitTest]
         public void TestExpectedException()
         {
-            Assert.Null(Assert.ExpectedException);
+            Assert.Null(Assert.Exception);
         }
 
         [UnitTest]
@@ -22,13 +22,13 @@ namespace SharpUnitTest
         {
             Exception ex = new Exception("Test");
 
-            Assert.Null(Assert.ExpectedException);
+            Assert.Null(Assert.Exception);
             Assert.ExpectException(ex);
-            Assert.NotNull(Assert.ExpectedException);
-            Assert.Equal(ex, Assert.ExpectedException);
+            Assert.NotNull(Assert.Exception);
+            Assert.Equal(ex, Assert.Exception);
 
-            Assert.ExpectedException = null;
-            Assert.Null(Assert.ExpectedException);
+            Assert.Exception = null;
+            Assert.Null(Assert.Exception);
         }
 
         [UnitTest]

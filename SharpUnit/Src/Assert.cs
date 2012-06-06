@@ -14,15 +14,15 @@ namespace SharpUnit
     public class Assert
     {
         // Members
-        private static Exception ms_expectedEx = null;  // The expected exception.
+        private static Exception ms_exception = null;  // The expected exception.
 
         /**
          * Property to get/set the exception we are expecting.
          */
-        public static Exception ExpectedException
+        public static Exception Exception
         {
-            get { return ms_expectedEx; }
-            set { ms_expectedEx = value; }
+            get { return ms_exception; }
+            set { ms_exception = value; }
         }
 
         /**
@@ -32,7 +32,7 @@ namespace SharpUnit
          */
         public static void ExpectException(Exception ex)
         {
-            ms_expectedEx = ex;
+            ms_exception = ex;
         }
 
         /**
