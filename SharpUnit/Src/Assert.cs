@@ -195,11 +195,13 @@ namespace SharpUnit
         /**
          * Throw an exception if the two floats are not not equal.
          * NOTE: Comparing two floats for exact equality is never accurate unless
-         *       you take into account error tolerances. It may be wiser to test
-         *       the expected ranges of floats using the greater-than / less-than operators.
-         *       See:
-         *              http://www.cygnus-software.com/papers/comparingfloats/comparingfloats.htm
-         *              http://realtimecollisiondetection.net/blog/?p=89
+         *       you take into account error tolerances. 
+         * 
+         * 		 It may be wiser instead to test the expected ranges of floats using the greater-than / less-than operators.
+         *       Otherwise, feel free to tweak this method using the info here for more precise checking based on your needs.
+         *
+         *       	http://www.cygnus-software.com/papers/comparingfloats/comparingfloats.htm
+         *          http://realtimecollisiondetection.net/blog/?p=89
          * 
          * @param wanted, the value we expected.
          * @param got, the value we actually received.
@@ -207,7 +209,8 @@ namespace SharpUnit
         public static void Equal(float wanted, float got)
         {
             // If values not equal
-            if (wanted != got)
+			bool equal = Math.Abs (wanted - got) <= float.Epsilon;
+            if (!equal)
             {
                 // Test failed
                 throw new TestException("Expected " + wanted + ", Got " + got);
@@ -217,11 +220,13 @@ namespace SharpUnit
         /**
          * Throw an exception if the two floats are not not equal.
          * NOTE: Comparing two floats for exact equality is never accurate unless
-         *       you take into account error tolerances. It may be wiser to test
-         *       the expected ranges of floats using the greater-than / less-than operators.
-         *       See:
-         *              http://www.cygnus-software.com/papers/comparingfloats/comparingfloats.htm
-         *              http://realtimecollisiondetection.net/blog/?p=89
+         *       you take into account error tolerances. 
+         * 
+         * 		 It may be wiser instead to test the expected ranges of floats using the greater-than / less-than operators.
+         *       Otherwise, feel free to tweak this method using the info here for more precise checking based on your needs.
+         *
+         *       	http://www.cygnus-software.com/papers/comparingfloats/comparingfloats.htm
+         *          http://realtimecollisiondetection.net/blog/?p=89
          * 
          * @param wanted, the value we expected.
          * @param got, the value we actually received.
@@ -230,7 +235,8 @@ namespace SharpUnit
         public static void Equal(float wanted, float got, string msg)
         {
             // If values not equal
-            if (wanted != got)
+			bool equal = Math.Abs (wanted - got) <= float.Epsilon;
+            if (!equal)
             {
                 // Test failed
                 throw new TestException(msg);
