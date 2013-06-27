@@ -347,7 +347,7 @@ namespace SharpUnit
         }
 
         /**
-         * Throw an exception if the two objects are not not equal.
+         * Throw an exception if the two objects are not equal.
          * 
          * @param wanted, the value we expected.
          * @param got, the value we actually received.
@@ -363,7 +363,7 @@ namespace SharpUnit
         }
 
         /**
-         * Throw an exception if the two objects are not not equal.
+         * Throw an exception if the two objects are not equal.
          * 
          * @param wanted, the value we expected.
          * @param got, the value we actually received.
