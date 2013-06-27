@@ -355,7 +355,7 @@ namespace SharpUnit
         public static void Equal(Object wanted, Object got)
         {
             // If values not equal
-            if (!wanted.Equals(got))
+			if (!object.Equals(wanted, got))
             {
                 // Test failed
                 throw new TestException("Expected " + wanted + ", Got " + got);
@@ -372,7 +372,7 @@ namespace SharpUnit
         public static void Equal(Object wanted, Object got, string msg)
         {
             // If values not equal
-            if (!wanted.Equals(got))
+			if (!object.Equals(wanted, got))
             {
                 // Test failed
                 throw new TestException(msg);
