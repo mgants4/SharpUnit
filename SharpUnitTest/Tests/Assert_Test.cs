@@ -221,6 +221,18 @@ namespace SharpUnitTest
             Assert.Equal(obj, 3);
         }
 
+		[UnitTest]
+		public void TestEqual_Obj_Null_NoParams()
+		{
+			// Test pass
+			Object obj = new Dummy();
+			Assert.Equal((object)null, null);
+
+			// Test fail
+			Assert.ExpectException(new TestException("Expected , Got " + obj.GetType()));
+			Assert.Equal(null, obj);
+		}
+
         [UnitTest]
         public void TestEqual_Obj()
         {
