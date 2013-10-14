@@ -14,7 +14,7 @@ public class Unity3D_TestReporter : TestReporter
     /**
      * Log unit test summary to the console.
      */
-    public override void LogSummary()
+    protected override void LogSummary()
     {
         // If the results invalid
         if (null == Result)
@@ -34,7 +34,7 @@ public class Unity3D_TestReporter : TestReporter
      *
      * @param Exception error, the error to log.
      */
-    public override void LogFailure(Exception error)
+	protected override void LogFailure(Exception error)
     {
         // If the error is valid
         if (null != error)
